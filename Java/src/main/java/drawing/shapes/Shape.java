@@ -23,7 +23,8 @@ public interface Shape {
     /**
      * Draws lines to file.
      */
-    default void draw(Writer writer, Line[] lines) {
+    default void draw(Writer writer) {
+        Line[] lines = toLines();
         try {
             for (Line line : lines) {
                 // TODO: what is the purpose of the code there?
