@@ -35,14 +35,14 @@ public class Drawing {
             } else if (format.equals("png")) {
                 writer = new PNGWriter(filename + ".png");
             } else {
-                throw new IOException("Invalid format.");
+                throw new IllegalArgumentException("Invalid format.");
             }
             for (Shape shape : this.shapes) {
                 shape.draw(writer);
             }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
