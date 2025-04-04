@@ -36,24 +36,26 @@ public class Frogger {
      */
     public boolean move(boolean forward) {
         int nextPosition = this.position + (forward ? 1 : -1);
-        if (!isValid(nextPosition) || isOccupied(nextPosition)) {
+        if (!road.isPositionValid(nextPosition) || road.isPositionOccupied(nextPosition)) {
             return false;
         }
         this.position = nextPosition;
         return true;
     }
 
-    // TODO: Do you notice any issues here?
-    public boolean isOccupied(int position) {
-        boolean[] occupied = this.road.getOccupied();
-        return occupied[position];
-    }
+    // // road гишүүн өгөгдөлд хандахдаа шинээр метод бичсэн байсныг устгаж,
+    // // Road класст эдгээр методуудыг бичиж, Frogger классаас дуудсан.
+    // 
+    // public boolean isOccupied(int position) {
+    //     boolean[] occupied = this.road.getOccupied();
+    //     return occupied[position];
+    // }
     
-    public boolean isValid(int position) {
-        if (position < 0) return false;
-        boolean[] occupied = this.road.getOccupied();
-        return position < occupied.length;
-    }
+    // public boolean isValid(int position) {
+    //     if (position < 0) return false;
+    //     boolean[] occupied = this.road.getOccupied();
+    //     return position < occupied.length;
+    // }
 
     /**
      * Records Frogger to the list of records.
