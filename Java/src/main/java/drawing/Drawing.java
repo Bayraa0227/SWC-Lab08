@@ -38,10 +38,12 @@ public class Drawing {
                 throw new IllegalArgumentException("Invalid format.");
             }
             for (Shape shape : this.shapes) {
-                shape.draw(writer);
+                shape.draw(writer, format);
             }
             writer.close();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e){
             e.printStackTrace();
         }
     }
